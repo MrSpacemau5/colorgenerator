@@ -6,6 +6,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.image.WritableImage;
+import javafx.scene.SnapshotParameters;
+import java.io.File;
+import javafx.embed.swing.SwingFXUtils;
+import javax.imageio.ImageIO;
+import javafx.stage.FileChooser;
+import java.awt.image.RenderedImage;
+import java.io.IOException;
 
 /**
  * Classe contrôleur pour l'interface décrite dans le document <b>colorgenerator.fxml</b>.
@@ -33,7 +41,7 @@ public class ColorgeneratorController {
     private Label colorrgb;
     @FXML
     private Label colorhex;
-    
+
     private NomArray noms;
     private AdjectifArray adjectifs;
     /**
@@ -82,7 +90,7 @@ public class ColorgeneratorController {
     public boolean onWindowCloseRequest() {
         return true;
     }
-    
+
     @FXML
     public void onGenerate(){
         this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
@@ -92,4 +100,20 @@ public class ColorgeneratorController {
         this.colorhex.setText(c.getHexa());
     }
 
+    @FXML
+    public void export(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+        File file = fileChooser.showSaveDialog(null);
+        if(file != null){
+            try {
+                WritableImage writableImage = new WritableImage((int)this.imagezone.getWidth(),(int)this.imagezone.getHeight());
+                this.imagezone.snapshot(null, writableImage);
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, "png", file);
+            } catch (IOException ex) { ex.printStackTrace(); }
+        }
+    }
+
 }
+
