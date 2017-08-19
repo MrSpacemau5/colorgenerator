@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ColorgeneratorController">
+  <children>
+    <SplitPane dividerPositions="0.7508771929824561" focusTraversable="true" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="572.0">
+      <items>
+        <AnchorPane fx:id="imagezone" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <Pane fx:id="colorzone" layoutX="0.0" layoutY="0.0" prefHeight="288.0" prefWidth="425.0" />
+            <Label fx:id="colorname" layoutX="2.0" layoutY="288.0" text="label">
+              <font>
+                <Font name="Agency FB Bold" size="20.0" />
+              </font>
+            </Label>
+            <Label fx:id="colorrgb" layoutX="0.0" layoutY="312.0" text="Label">
+              <font>
+                <Font name="Agency FB" size="20.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Label fx:id="colorhex" font="$x1" layoutX="2.0" layoutY="336.0" text="Label" />
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="buttonzone" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="509.0">
+          <children>
+            <Button fx:id="generatebutton" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#onGenerate" text="Generate">
+              <font>
+                <Font size="12.0" />
+              </font>
+            </Button>
+            <Button fx:id="exportbutton" layoutX="17.0" layoutY="194.0" mnemonicParsing="false" text="Export as image" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>
