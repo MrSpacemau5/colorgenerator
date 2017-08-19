@@ -33,6 +33,9 @@ public class ColorgeneratorController {
     private Label colorrgb;
     @FXML
     private Label colorhex;
+    
+    private NomArray noms;
+    private AdjectifArray adjectifs;
     /**
      * Constructeur.
      */
@@ -49,6 +52,8 @@ public class ColorgeneratorController {
         this.colorname.setText("Black");
         this.colorrgb.setText("(0,0,0)");
         this.colorhex.setText("#000000");
+        this.noms = new NomArray();
+        this.adjectifs = new AdjectifArray();
     }
 
     /**
@@ -80,6 +85,7 @@ public class ColorgeneratorController {
     
     @FXML
     public void onGenerate(){
+        this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
         Couleur c = Couleur.generateRandom();
         this.colorzone.setStyle("-fx-background-color: rgb(" + c.getR() + "," + c.getG() + "," + c.getB() + ");");
         this.colorrgb.setText("(" + c.getR() + "," + c.getG() + "," + c.getB() + ")");
