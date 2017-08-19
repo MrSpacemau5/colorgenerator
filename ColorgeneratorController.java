@@ -1,3 +1,9 @@
+/**
+ * Classe contrôleur (FR)
+ * 
+ * @author  Maxence Marchand, aka MrSpacemau5
+ * @version 19/08/2017
+ */
 
 import java.util.ResourceBundle;
 import info.util.javafx.FXUtil;
@@ -16,9 +22,9 @@ import java.awt.image.RenderedImage;
 import java.io.IOException;
 
 /**
- * Classe contrôleur pour l'interface décrite dans le document <b>colorgenerator.fxml</b>.
+ * Classe contrôleur pour l'interface décrite dans le document <b>colorgenerator.fxml</b>.(FR)
  *
- * Cette classe contient principalement les méthodes appelées en réaction aux événements utilisateur.  
+ * Cette classe contient principalement les méthodes appelées en réaction aux événements utilisateur.
  * Une instance de cette classe est créée automatiquement chaque fois que le document <b>colorgenerator.fxml</b> est chargé.
  */
 public class ColorgeneratorController {
@@ -91,6 +97,11 @@ public class ColorgeneratorController {
         return true;
     }
 
+    /**
+     * Méthode qui génère une couleur aléatoire, son code RGB et héxadécimal, ainsi qu'un nom aléatoire.
+     * Invoquée lorsque l'on clique sur "generate".
+     *
+     */
     @FXML
     public void onGenerate(){
         this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
@@ -100,6 +111,11 @@ public class ColorgeneratorController {
         this.colorhex.setText(c.getHexa());
     }
 
+    /**
+     * Méthode qui exporte la couleur générée en image png.
+     * Invoquée lorsque l'on clique sur "export as image".
+     *
+     */
     @FXML
     public void export(){
         FileChooser fileChooser = new FileChooser();

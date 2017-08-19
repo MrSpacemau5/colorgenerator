@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------
-Ceci est le fichier LISEZMOI (README) du projet. 
+README
 ------------------------------------------------------------------------
 
-TITRE DU PROJET : TP ALGORITHMIQUE-PROGRAMMATION DUT INFO
-DATE :
-AUTEURS :
+TITRE  : Color Generator by MrSpacemau5
+DATE : 19/08/2017
+AUTEUR : Maxence Marchand, aka MrSpacemau5

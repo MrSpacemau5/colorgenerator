@@ -1,4 +1,9 @@
-
+/**
+ * Classe application
+ * 
+ * @author  Maxence Marchand, aka MrSpacemau5
+ * @version 19/08/2017
+ */
 
 import java.util.ResourceBundle;
 import info.util.javafx.FXUtil;

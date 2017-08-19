@@ -1,20 +1,28 @@
 
 /**
- * Vous pouvez décrire votre classe Adjective ici
+ * Classe contenant l'arry de noms
  * 
- * @author  Indiquez votre nom
- * @version Indiquez la date
+ * @author  Maxence Marchand, aka MrSpacemau5
+ * @version 19/08/2017
  */
 import java.util.ArrayList;
 import java.util.Collections;
 public class NomArray {
     private ArrayList<String> array;
 
+    /**
+     * Constructeur
+     *
+     */
     public NomArray(){
         array = new ArrayList<String>();
         this.fill();
     }
 
+    /**
+     * Méthode qui remplit l'array avec les noms donnés
+     *
+     */
     public void fill(){
         Collections.addAll(this.array,"Wave", "Cloud", "Road", "Alarm", "Sheet", "Love", "Hate", "Feeling",
             "Life", "Death", "Light", "Darkness", "Screen", "Body", "Sea", "Land", "Sign", "Network", "Fruit",
@@ -23,6 +31,11 @@ public class NomArray {
             "Tree", "Plant", "Power", "Weakness", "Animal", "Paper", "Picture", "Control", "Ball", "Item", "Generation");
     }
 
+    /**
+     * Méthode qui retourne un nom aléatoire contenu dans la liste
+     *
+     * @return un nom aléatoire compris dans la liste
+     */
     public String getRandomNom(){
         java.util.Random r = new java.util.Random();
         int low = 0;
