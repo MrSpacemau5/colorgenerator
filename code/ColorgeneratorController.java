@@ -47,9 +47,16 @@ public class ColorgeneratorController {
     private Label colorrgb;
     @FXML
     private Label colorhex;
+    @FXML
+    private Button userInputButton;
+    @FXML
+    private TextField userInput;
 
     private NomArray noms;
     private AdjectifArray adjectifs;
+    private boolean colorsaved;
+    private String uiName;
+    Couleur c;
     /**
      * Constructeur.
      */
@@ -62,10 +69,11 @@ public class ColorgeneratorController {
      */
     @FXML
     protected void initialize() {
-        this.colorzone.setStyle("-fx-background-color: rgb(0,0,0);");
+    	this.c = new Couleur (0,0,0);
+    	this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
+        this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
+        this.colorhex.setText(this.c.getHexa());
         this.colorname.setText("Black");
-        this.colorrgb.setText("(0,0,0)");
-        this.colorhex.setText("#000000");
         this.noms = new NomArray();
         this.adjectifs = new AdjectifArray();
     }
@@ -104,11 +112,16 @@ public class ColorgeneratorController {
      */
     @FXML
     public void onGenerate(){
-        this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
-        Couleur c = Couleur.generateRandom();
-        this.colorzone.setStyle("-fx-background-color: rgb(" + c.getR() + "," + c.getG() + "," + c.getB() + ");");
-        this.colorrgb.setText("(" + c.getR() + "," + c.getG() + "," + c.getB() + ")");
-        this.colorhex.setText(c.getHexa());
+    	if(!this.colorsaved) {
+    		this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
+    	}
+    	else {
+    		this.colorname.setText(uiName);
+    	}
+        c = Couleur.generateRandom();
+        this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
+        this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
+        this.colorhex.setText(this.c.getHexa());
     }
 
     /**
@@ -130,6 +143,17 @@ public class ColorgeneratorController {
             } catch (IOException ex) { ex.printStackTrace(); }
         }
     }
-
+    
+    @FXML
+    public void onUserInput() {
+    	if(!this.userInput.getText().isEmpty()) {
+    		this.colorname.setText(this.userInput.getText());
+    	}
+    	else {
+    		this.colorname.setText(this.adjectifs.getRandomAdjectif() + " " + this.noms.getRandomNom());
+    		this.colorsaved=false;
+    	}
+    	this.colorsaved=true;
+    }
 }
 

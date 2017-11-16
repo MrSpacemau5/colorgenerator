@@ -75,4 +75,16 @@ public class Couleur {
         String hex = String.format("#%02X%02X%02X", this.r, this.g, this.b); 
         return hex;
     }
+
+	public void setR(int r) {
+		this.r = r;
+	}
+
+	public void setG(int g) {
+		this.g = g;
+	}
+
+	public void setB(int b) {
+		this.b = b;
+	}
 }
