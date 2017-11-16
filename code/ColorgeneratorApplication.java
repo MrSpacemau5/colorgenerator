@@ -6,7 +6,6 @@
  */
 
 import java.util.ResourceBundle;
-import info.util.javafx.FXUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

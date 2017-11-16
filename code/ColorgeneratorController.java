@@ -6,18 +6,15 @@
  */
 
 import java.util.ResourceBundle;
-import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert.AlertType;
+
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
+
 import javafx.scene.image.WritableImage;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
+
 import java.io.File;
 import javafx.embed.swing.SwingFXUtils;
 import javax.imageio.ImageIO;
