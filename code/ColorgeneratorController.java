@@ -10,9 +10,13 @@ import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.scene.image.WritableImage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import java.io.File;
 import javafx.embed.swing.SwingFXUtils;
@@ -51,6 +55,12 @@ public class ColorgeneratorController {
     private Button userInputButton;
     @FXML
     private TextField userInput;
+    @FXML
+    private TextField redValue;
+    @FXML
+    private TextField greenValue;
+    @FXML
+    private TextField blueValue;
 
     private NomArray noms;
     private AdjectifArray adjectifs;
@@ -76,6 +86,10 @@ public class ColorgeneratorController {
         this.colorname.setText("Black");
         this.noms = new NomArray();
         this.adjectifs = new AdjectifArray();
+        this.redValue.setText(""+c.getR());
+        this.greenValue.setText(""+this.c.getG());
+        this.blueValue.setText(""+this.c.getB());
+        
     }
 
     /**
@@ -122,6 +136,9 @@ public class ColorgeneratorController {
         this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
         this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
         this.colorhex.setText(this.c.getHexa());
+        this.redValue.setText(""+c.getR());
+        this.greenValue.setText(""+this.c.getG());
+        this.blueValue.setText(""+this.c.getB());
     }
 
     /**
@@ -154,6 +171,25 @@ public class ColorgeneratorController {
     		this.colorsaved=false;
     	}
     	this.colorsaved=true;
+    }
+    
+    @FXML
+    public void onCustomColor() {
+    	boolean resr = false;
+    	boolean resg = false;
+    	boolean resb=false;
+    	resr = CheckValue.checkValue(this.redValue.getText());
+    	resg = CheckValue.checkValue(this.greenValue.getText());
+    	resb = CheckValue.checkValue(this.blueValue.getText());
+
+    	if(resr && resg && resb) {
+    		this.c.setR(Integer.parseInt(this.redValue.getText()));
+    		this.c.setG(Integer.parseInt(this.greenValue.getText()));
+    		this.c.setB(Integer.parseInt(this.blueValue.getText()));
+    		this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
+            this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
+            this.colorhex.setText(this.c.getHexa());
+    	}
     }
 }
 

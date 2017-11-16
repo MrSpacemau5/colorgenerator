@@ -37,6 +37,10 @@
             <Button fx:id="exportbutton" layoutX="17.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#export" text="Export as image" />
             <TextField id="colorname" fx:id="userInput" layoutX="11.0" layoutY="192.0" maxWidth="1.7976931348623157E308" prefWidth="121.0" promptText="Custom color name" />
             <Button fx:id="userInputButton" layoutX="31.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#onUserInput" text="Save Name" />
+            <TextField fx:id="redValue" layoutX="11.0" layoutY="14.0" maxWidth="-1.0" prefWidth="50.0" promptText="Red" />
+            <TextField fx:id="greenValue" layoutX="11.0" layoutY="36.0" prefWidth="50.0" promptText="Green" />
+            <TextField fx:id="blueValue" layoutX="11.0" layoutY="58.0" prefWidth="50.0" promptText="Blue" />
+            <Button layoutX="66.0" layoutY="36.0" mnemonicParsing="false" prefWidth="50.0" text="OK" />
           </children>
         </AnchorPane>
       </items>
