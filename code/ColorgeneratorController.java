@@ -18,6 +18,8 @@ import javafx.scene.image.WritableImage;
 import java.io.File;
 import javafx.embed.swing.SwingFXUtils;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+
 import javafx.stage.FileChooser;
 import java.awt.image.RenderedImage;
 import java.io.IOException;
@@ -175,17 +177,22 @@ public class ColorgeneratorController {
     	boolean resr = false;
     	boolean resg = false;
     	boolean resb=false;
-    	resr = CheckValue.checkValue(this.redValue.getText());
-    	resg = CheckValue.checkValue(this.greenValue.getText());
-    	resb = CheckValue.checkValue(this.blueValue.getText());
+    	try {
+    		resr = CheckValue.checkValue(this.redValue.getText());
+    		resg = CheckValue.checkValue(this.greenValue.getText());
+    		resb = CheckValue.checkValue(this.blueValue.getText());
 
-    	if(resr && resg && resb) {
-    		this.c.setR(Integer.parseInt(this.redValue.getText()));
-    		this.c.setG(Integer.parseInt(this.greenValue.getText()));
-    		this.c.setB(Integer.parseInt(this.blueValue.getText()));
-    		this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
-            this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
-            this.colorhex.setText(this.c.getHexa());
+    		if(resr && resg && resb) {
+    			this.c.setR(Integer.parseInt(this.redValue.getText()));
+    			this.c.setG(Integer.parseInt(this.greenValue.getText()));
+    			this.c.setB(Integer.parseInt(this.blueValue.getText()));
+    			this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
+            	this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
+            	this.colorhex.setText(this.c.getHexa());
+    		}
+    	}
+    	catch(NumberFormatException e) {
+    		JOptionPane.showMessageDialog(null, "Invalid input. \n Please enter an integer between 0 and 255");
     	}
     }
 }
