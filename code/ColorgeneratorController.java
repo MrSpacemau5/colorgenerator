@@ -79,9 +79,7 @@ public class ColorgeneratorController {
     @FXML
     protected void initialize() {
     	this.c = new Couleur (0,0,0);
-    	this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
-        this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
-        this.colorhex.setText(this.c.getHexa());
+    	this.actualize();
         this.colorname.setText("Black");
         this.noms = new NomArray();
         this.adjectifs = new AdjectifArray();
@@ -132,9 +130,7 @@ public class ColorgeneratorController {
     		this.colorname.setText(uiName);
     	}
         c = Couleur.generateRandom();
-        this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
-        this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
-        this.colorhex.setText(this.c.getHexa());
+        this.actualize();
         this.redValue.setText(""+c.getR());
         this.greenValue.setText(""+this.c.getG());
         this.blueValue.setText(""+this.c.getB());
@@ -177,23 +173,34 @@ public class ColorgeneratorController {
     	boolean resr = false;
     	boolean resg = false;
     	boolean resb=false;
+    	String redText="";
+    	String greenText="";
+    	String blueText="";
     	try {
-    		resr = CheckValue.checkValue(this.redValue.getText());
-    		resg = CheckValue.checkValue(this.greenValue.getText());
-    		resb = CheckValue.checkValue(this.blueValue.getText());
+    		redText=this.redValue.getText();
+    		greenText=this.greenValue.getText();
+    		blueText=this.blueValue.getText();
+    		resr = CheckValue.checkValue(redText);
+    		resg = CheckValue.checkValue(greenText);
+    		resb = CheckValue.checkValue(blueText);
 
     		if(resr && resg && resb) {
-    			this.c.setR(Integer.parseInt(this.redValue.getText()));
-    			this.c.setG(Integer.parseInt(this.greenValue.getText()));
-    			this.c.setB(Integer.parseInt(this.blueValue.getText()));
-    			this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
-            	this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
-            	this.colorhex.setText(this.c.getHexa());
+    			this.c.setR(Integer.parseInt(redText));
+    			this.c.setG(Integer.parseInt(greenText));
+    			this.c.setB(Integer.parseInt(blueText));
+    			this.actualize();
+    			
     		}
     	}
     	catch(NumberFormatException e) {
     		JOptionPane.showMessageDialog(null, "Invalid input. \n Please enter an integer between 0 and 255");
     	}
+    }
+    
+    public void actualize() {
+    	this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
+    	this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");
+    	this.colorhex.setText(this.c.getHexa());
     }
 }
 
