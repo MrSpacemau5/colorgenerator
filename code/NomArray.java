@@ -1,8 +1,8 @@
 
 /**
- * Classe contenant l'arry de noms
+ * Class with arrays of names, for the random name.
  * 
- * @author  Maxence Marchand, aka MrSpacemau5
+ * @author  MrSpacemau5
  * @version 19/08/2017
  */
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class NomArray {
     private ArrayList<String> array;
 
     /**
-     * Constructeur
+     * Constructor
      *
      */
     public NomArray(){
@@ -20,7 +20,7 @@ public class NomArray {
     }
 
     /**
-     * Méthode qui remplit l'array avec les noms donnés
+     * Method filling the array.
      *
      */
     public void fill(){
@@ -32,9 +32,9 @@ public class NomArray {
     }
 
     /**
-     * Méthode qui retourne un nom aléatoire contenu dans la liste
+     * Method returning a random name in the array.
      *
-     * @return un nom aléatoire compris dans la liste
+     * @return a random name from the array
      */
     public String getRandomNom(){
         java.util.Random r = new java.util.Random();

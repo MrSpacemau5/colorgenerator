@@ -1,8 +1,8 @@
 /**
- * Classe contrôleur (FR)
+ * Controller class
  * 
- * @author  Maxence Marchand, aka MrSpacemau5
- * @version 19/08/2017
+ * @author  MrSpacemau5
+ * @version 18/11/2017
  */
 
 import java.util.ResourceBundle;
@@ -25,10 +25,10 @@ import java.awt.image.RenderedImage;
 import java.io.IOException;
 
 /**
- * Classe contrôleur pour l'interface décrite dans le document <b>colorgenerator.fxml</b>.(FR)
+ * Controller class for the interface written in the  <b>colorgenerator.fxml</b> document
  *
- * Cette classe contient principalement les méthodes appelées en réaction aux événements utilisateur.
- * Une instance de cette classe est créée automatiquement chaque fois que le document <b>colorgenerator.fxml</b> est chargé.
+ * Contains mostly methods called by user interactions
+ * An instance of this class is automatically created when the <b>colorgenerator.fxml</b> document is loaded
  */
 public class ColorgeneratorController {
     @FXML
@@ -67,14 +67,14 @@ public class ColorgeneratorController {
     private String uiName;
     Couleur c;
     /**
-     * Constructeur.
+     * Constructor
      */
     public ColorgeneratorController() {
         this.bundle = ResourceBundle.getBundle("colorgenerator");
     }
 
     /**
-     * Méthode invoquée automatiquement après instanciation de ce contrôleur par JavaFX.
+     * Method called only after an object has been instanciated
      */
     @FXML
     protected void initialize() {
@@ -90,10 +90,7 @@ public class ColorgeneratorController {
     }
 
     /**
-     * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce contrôleur
-     * est affichée.
-     * Si nécessaire, complétez cette méthode pour exécuter du code après l'affichage de
-     * la fenêtre.
+     * Method called whenever the window is shown (useless)
      */
     @FXML
     public void onWindowShown() {
@@ -101,14 +98,10 @@ public class ColorgeneratorController {
     }
 
     /**
-     * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce contrôleur
-     * est sur le point d'être fermée par le système.
-     * Si nécessaire, complétez cette méthode pour autoriser/empêcher la fermeture
-     * de la fenêtre.
+     * Method called whenever a close is requested
      * 
-     * @return {@code true} si la fenêtre peut être fermée, ou {@code false}
-     *         sinon (par exemple pour permettre à l'utilisateur d'enregistrer
-     *         un document).
+     * @return {@code true} if the window can be closed, {@code false}
+     *         otherwise
      * 
      */
     @FXML
@@ -117,8 +110,7 @@ public class ColorgeneratorController {
     }
 
     /**
-     * Méthode qui génère une couleur aléatoire, son code RGB et héxadécimal, ainsi qu'un nom aléatoire.
-     * Invoquée lorsque l'on clique sur "generate".
+     * Generates a random color, with a random name if the user hasn't saved a custom name
      *
      */
     @FXML
@@ -137,8 +129,7 @@ public class ColorgeneratorController {
     }
 
     /**
-     * Méthode qui exporte la couleur générée en image png.
-     * Invoquée lorsque l'on clique sur "export as image".
+     * Exports a png image with color
      *
      */
     @FXML
@@ -156,6 +147,10 @@ public class ColorgeneratorController {
         }
     }
     
+    /**
+     * Method called when the user wants to save a custom name
+     *
+     */
     @FXML
     public void onUserInput() {
     	if(!this.userInput.getText().isEmpty()) {
@@ -168,6 +163,11 @@ public class ColorgeneratorController {
     	this.colorsaved=true;
     }
     
+    /**
+     * Method called when the user enters custom values for the color.
+     * A pop-up is shown when he enters an invalid value
+     *
+     */
     @FXML
     public void onCustomColor() {
     	boolean resr = false;
@@ -197,6 +197,10 @@ public class ColorgeneratorController {
     	}
     }
     
+    /**
+     * Actualizes the color's data
+     *
+     */
     public void actualize() {
     	this.colorzone.setStyle("-fx-background-color: rgb(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ");");
     	this.colorrgb.setText("(" + this.c.getR() + "," + this.c.getG() + "," + this.c.getB() + ")");

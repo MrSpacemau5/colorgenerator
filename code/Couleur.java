@@ -1,7 +1,7 @@
 /**
- * Classe en charge de la couleur
+ * Class for the color
  * 
- * @author  Maxence Marchand, aka MrSpacemau5
+ * @author  MrSpacemau5
  * @version 19/08/2017
  */
 
@@ -11,11 +11,11 @@ public class Couleur {
     private int b;
 
     /**
-     * Constructeur
+     * Constructor
      *
-     * @param r La valeur de rouge de la couleur
-     * @param g La valeur de vert de la couleur
-     * @param b La valeur de bleu de la couleur
+     * @param r red value
+     * @param g green value
+     * @param b blue value
      */
     public Couleur(int r, int g, int b){
         this.r=r;
@@ -24,36 +24,36 @@ public class Couleur {
     }
 
     /**
-     * Accesseur au rouge de la couleur
+     * Red value getter
      *
-     * @return la valeur de rouge de la couleur
+     * @return red value
      */
     public int getR(){
         return this.r;
     }
 
     /**
-     * Accesseur au vert de la couleur
+     * Green value getter
      *
-     * @return la valeur de vert de la couleur
+     * @return green value
      */
     public int getG(){
         return this.g;
     }
 
     /**
-     * Accesseur au bleu de la couleur
+     * Blue value getter
      *
-     * @return la valeur de bleu de la couleur
+     * @return blue value
      */
     public int getB(){
         return this.b;
     }
 
     /**
-     * Méthode qui génère une couleur aléatoire
+     * Generates a random color
      *
-     * @return la couleur aléatoire
+     * @return a random color
      */
     public static Couleur generateRandom(){
         java.util.Random r = new java.util.Random();
@@ -65,26 +65,41 @@ public class Couleur {
         Couleur res = new Couleur(red, green, blue);
         return res;
     }
-    
+
     /**
-     * Méthode qui retourne le code héxadécimal de la couleur
+     * Returns the hexa code of the color
      *
-     * @return le code héxadécimal de la couleur
+     * @return hexa code of the color
      */
     public String getHexa(){
         String hex = String.format("#%02X%02X%02X", this.r, this.g, this.b); 
         return hex;
     }
 
-	public void setR(int r) {
-		this.r = r;
-	}
+    /**
+     * red value setter
+     *
+     * @param r red value
+     */
+    public void setR(int r) {
+        this.r = r;
+    }
 
-	public void setG(int g) {
-		this.g = g;
-	}
+    /**
+     * green value setter
+     *
+     * @param g green value
+     */
+    public void setG(int g) {
+        this.g = g;
+    }
 
-	public void setB(int b) {
-		this.b = b;
-	}
+    /**
+     * blue value setter
+     *
+     * @param b blue value
+     */
+    public void setB(int b) {
+        this.b = b;
+    }
 }

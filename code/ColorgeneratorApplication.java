@@ -1,7 +1,9 @@
 /**
- * Classe application
+ * Application class
  * 
- * @author  Maxence Marchand, aka MrSpacemau5
+ * (Don't touch this code, the documentation is in french, too lazy to translate)
+ * 
+ * @author  MrSpacemau5
  * @version 19/08/2017
  */
 

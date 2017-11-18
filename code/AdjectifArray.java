@@ -1,8 +1,8 @@
 
 /**
- * Classe contenant l'array d'adjectifs
+ * Class with array of adjectives, for the random name.
  * 
- * @author  Maxence Marchand, aka MrSpacemau5
+ * @author  MrSpacemau5
  * @version 19/08/2017
  */
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class AdjectifArray {
     private ArrayList<String> array;
 
     /**
-     * Constructeur
+     * Constructor
      *
      */
     public AdjectifArray(){
@@ -20,7 +20,7 @@ public class AdjectifArray {
     }
     
     /**
-     * Méthode qui remplit l'arraylist avec les adjectifs donnés
+     * Method filling the array.
      *
      */
     public void fill(){
@@ -32,9 +32,9 @@ public class AdjectifArray {
     }
     
     /**
-     * Méthode qui retourne un adjectif aléatoire contenu dans la liste
+     * Method returning a random adjective from the array.
      *
-     * @return un adjectif aléatoire compris dans la liste
+     * @return a random adjective from the array
      */
     public String getRandomAdjectif(){
         java.util.Random r = new java.util.Random();
